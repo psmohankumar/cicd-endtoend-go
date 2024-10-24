@@ -1,14 +1,14 @@
-FROM golang:1.22.5 as builder
+FROM golang:1.22.5 as base
 
 WORKDIR /app
 
 COPY  go.mod .
 
-RUN go mod doenload
+RUN go mod download
 
 COPY . .
 
-RUN go build - o main .
+RUN go build -o main .
 
 #EXPOSE 8080
 
